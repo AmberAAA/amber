@@ -2,12 +2,17 @@
     "homepage": "https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe",
     "description": "微信",
     "version": "nightly",
-    "url": "https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe",
+    "url": "https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe#/dl.7z",
     "shortcuts": [
         [
-            "WeChatSetup.exe",
+            "WeChat.exe",
             "WeChat"
         ]
+    ],
+    "post_install": [
+        "Remove-Item \"$dir\\`$PLUGINSDIR\" -Force -Recurse",
+        "Remove-Item \"$dir\\`$_15_\" -Force -Recurse",
+        "Remove-Item \"$dir\\`$R5\" -Force -Recurse"
     ],
     "notes": "We don't persist your WeChat data, they are still storaged in '%APPDATA%\\Tencent\\WeChat'."
 }
