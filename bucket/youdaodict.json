@@ -8,10 +8,5 @@
             "YoudaoDict.exe",
             "youdao"
         ]
-    ],
-    "post_install": [
-        "Remove-Item \"$dir\\`$PLUGINSDIR\" -Force -Recurse",
-        "Remove-Item \"$dir\\`$_15_\" -Force -Recurse",
-        "Remove-Item \"$dir\\`$R5\" -Force -Recurse"
     ]
 }
