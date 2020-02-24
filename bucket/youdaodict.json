@@ -2,11 +2,19 @@
     "homepage": "http://cidian.youdao.com",
     "description": "有道词典",
     "version": "nightly",
-    "url": "http://cidian.youdao.com/download/YoudaoDict.exe#/dl.7z",
+    "url": "http://cidian.youdao.com/download/YoudaoDict.exe",
     "shortcuts": [
         [
             "YoudaoDict.exe",
             "youdao"
         ]
-    ]
+    ],
+    "installer": {
+        "script": [
+            "Get-ChildItem \"$dir\\YoudaoDict*.exe\" | Rename-Item -NewName \"$dir\\installer.exe\"",
+            "Expand-7zipArchive \"$dir\\installer.exe\" \"$dir\" | Out-Null",
+            "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse",
+            "Remove-Item \"$dir\\installer.exe\" | Out-Null"
+        ]
+    }
 }
