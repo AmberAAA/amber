@@ -7,13 +7,12 @@
         "script": [
             "Get-ChildItem \"$dir\\YoudaoDict.exe\" | Rename-Item -NewName \"$dir\\installer.exe\"",
             "Expand-7zipArchive \"$dir\\installer.exe\" \"$dir\" | Out-Null",
-            "Expand-7zipArchive \"$dir/`$PLUGINSDIR\\dict.7z\" \"$dir\" | Out-Null",
-            "Get-ChildItem \"$dir\\YoudaoDict.exe\" | Rename-Item -NewName \"$dir\\有道词典.exe\""
+            "Expand-7zipArchive \"$dir/`$PLUGINSDIR\\dict.7z\" \"$dir\" | Out-Null"
         ]
     },
     "shortcuts": [
         [
-            "有道词典.exe",
+            "YoudaoDict.exe",
             "有道词典"
         ]
     ],
