@@ -3,18 +3,23 @@
     "description": "有道词典",
     "version": "nightly",
     "url": "http://cidian.youdao.com/download/YoudaoDict.exe",
-    "shortcuts": [
-        [
-            "YoudaoDict.exe",
-            "youdao"
-        ]
-    ],
     "installer": {
         "script": [
-            "Get-ChildItem \"$dir\\YoudaoDict*.exe\" | Rename-Item -NewName \"$dir\\installer.exe\"",
+            "Get-ChildItem \"$dir\\YoudaoDict.exe\" | Rename-Item -NewName \"$dir\\installer.exe\"",
             "Expand-7zipArchive \"$dir\\installer.exe\" \"$dir\" | Out-Null",
-            "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse",
-            "Remove-Item \"$dir\\installer.exe\" | Out-Null"
+            "Expand-7zipArchive \"$dir/`$PLUGINSDIR\\dict.7z\" \"$dir\" | Out-Null",
+            "Get-ChildItem \"$dir\\YoudaoDict.exe\" | Rename-Item -NewName \"$dir\\有道词典.exe\""
         ]
-    }
+    },
+    "shortcuts": [
+        [
+            "有道词典.exe",
+            "有道词典"
+        ]
+    ],
+    "post_install": [
+        "Remove-Item \"$dir\\`$PLUGINSDIR\" -Force -Recurse",
+        "Remove-Item \"$dir\\`$_67_\" -Force -Recurse",
+        "Remove-Item \"$dir\\installer.exe\" -Force -Recurse"
+    ]
 }
